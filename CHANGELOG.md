@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/boycgit/ss-priority-queue/compare/v1.0.2...v1.0.3) (2018-10-22)
+
+
+### Features
+
+* **重构:** 使用 ss-comparator 代替默认内置的对比函数，升级 ss-heap 版本号 ([4d7f1cb](https://github.com/boycgit/ss-priority-queue/commit/4d7f1cb))
+
+
+
 <a name="1.0.2"></a>
 ## 1.0.2 (2018-10-17)
 
