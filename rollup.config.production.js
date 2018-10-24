@@ -3,6 +3,7 @@ var uglify = require('rollup-plugin-uglify').uglify;
 var terser = require('rollup-plugin-terser').terser;
 var path = require('path');
 var pkg = require('./package.json');
+var deps = Object.keys(pkg.dependencies || {});
 
 const targetName = 'index';
 const capitalize = ([first, ...rest], lowerRest = false) =>
@@ -73,7 +74,7 @@ module.exports = [
   // `file` and `format` for each target)
   compileConfig({
     fromDir: '.build.cjs',
-    external: ['big.js'],
+    external: deps,
     outputFileName: path.parse(pkg.main).name,
     shouldMinified: false,
     format: 'cjs'
@@ -81,7 +82,7 @@ module.exports = [
   // minified
   compileConfig({
     fromDir: '.build.cjs',
-    external: ['big.js'],
+    external: deps,
     outputFileName: path.parse(pkg.main).name,
     shouldMinified: true,
     format: 'cjs'
@@ -90,7 +91,7 @@ module.exports = [
   // es
   compileConfig({
     fromDir: '.build.es',
-    external: ['big.js'],
+    external: deps,
     outputFileName: path.parse(pkg.module).name,
     shouldMinified: false,
     format: 'es'
@@ -98,7 +99,7 @@ module.exports = [
   // es, minified
   compileConfig({
     fromDir: '.build.es',
-    external: ['big.js'],
+    external: deps,
     outputFileName: path.parse(pkg.module).name,
     shouldMinified: true,
     format: 'es'
